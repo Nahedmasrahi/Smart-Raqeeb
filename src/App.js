@@ -1,6 +1,5 @@
 import './index.css';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-
 import { useState } from 'react';
 
 import LoginPage from './pages/LoginPage';
@@ -61,7 +60,7 @@ function App() {
         <Route path="/fake-detection" element={<FakeDetection />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/assistant" element={<Assistant />} />
-        {/* Route افتراضي يرجع للرئيسية إذا المسار غير موجود */}
+        {/* أي مسار غير موجود يرجع للرئيسية */}
         <Route path="*" element={<HomePage language={language} setLanguage={setLanguage} t={t} />} />
       </Routes>
     </Router>
@@ -69,3 +68,4 @@ function App() {
 }
 
 export default App;
+
