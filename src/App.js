@@ -1,6 +1,8 @@
-// ✅ App.js
 import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
+
+
 import { useState } from 'react';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -11,8 +13,6 @@ import Assistant from './pages/Assistant';
 
 function App() {
   const [language, setLanguage] = useState('ar');
-
-
 
   const texts = {
     ar: {
@@ -54,19 +54,17 @@ function App() {
   const t = texts[language];
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<HomePage language={language} setLanguage={setLanguage} t={t} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/price-analysis" element={<PriceAnalysis />} />
         <Route path="/fake-detection" element={<FakeDetection />} />
-         <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/assistant" element={<Assistant />} />
-
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/assistant" element={<Assistant />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

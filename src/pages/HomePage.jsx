@@ -34,22 +34,28 @@ const [username, setUsername] = useState(localStorage.getItem('username'));
       </nav>
 
       {/* سكشن الفيديو */}
-      <div id="home" className="relative w-full h-screen overflow-hidden">
-        <video autoPlay loop muted className="absolute w-full h-full object-cover">
-          <source src="/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">{t.welcome}</h1>
-          <p className="text-lg md:text-2xl max-w-2xl">{t.description}</p>
-        </div>
-      </div>
+<div id="home" className="relative w-full h-screen overflow-hidden">
+  <video 
+    autoPlay 
+    loop 
+    muted 
+    className="absolute w-full h-full object-cover"
+  >
+    <source src={process.env.PUBLIC_URL + '/video2.mp4'} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
+    <h1 className="text-4xl md:text-6xl font-bold mb-4">{t.welcome}</h1>
+    <p className="text-lg md:text-2xl max-w-2xl">{t.description}</p>
+  </div>
+</div>
 
-      {/* سكشن من نحن + البوكسات */}
+
+{/* سكشن من نحن + البوكسات */}
 <section
   id="about"
   className="relative py-28 px-6 md:px-20 text-white bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/n1.jpg')" }}
+  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/n1.jpg'})` }}
 >
   <div className="absolute inset-0 bg-black/70 backdrop-blur-sm z-0" />
   <motion.div
@@ -94,6 +100,7 @@ const [username, setUsername] = useState(localStorage.getItem('username'));
     })}
   </div>
 </section>
+
 
       {/* Footer */}
       <footer className="bg-[#0c1321] text-white py-16 px-6 md:px-20">
