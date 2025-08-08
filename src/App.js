@@ -1,9 +1,8 @@
 import './index.css';
-import { HashRouter } from "react-router-dom";
-
-
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import { useState } from 'react';
+
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import PriceAnalysis from './pages/PriceAnalysis';
@@ -54,7 +53,7 @@ function App() {
   const t = texts[language];
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage language={language} setLanguage={setLanguage} t={t} />} />
         <Route path="/login" element={<LoginPage />} />
@@ -62,6 +61,8 @@ function App() {
         <Route path="/fake-detection" element={<FakeDetection />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/assistant" element={<Assistant />} />
+        {/* Route افتراضي يرجع للرئيسية إذا المسار غير موجود */}
+        <Route path="*" element={<HomePage language={language} setLanguage={setLanguage} t={t} />} />
       </Routes>
     </Router>
   );
