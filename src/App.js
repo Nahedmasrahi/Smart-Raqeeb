@@ -1,5 +1,5 @@
 import './index.css';
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 
 
